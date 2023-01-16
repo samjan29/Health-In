@@ -5,9 +5,10 @@ from pymongo import MongoClient
 client = MongoClient('mongodb+srv://test:sparta@cluster0.s6i4xlw.mongodb.net/cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
-@app.route('/')
+@app.route('/trainer')
 def home():
-    return render_template('index.html')
+    trainer_list = list(db.healthin.find({}, {'_id': False}).sort('name', -1))
+    return render_template('trainer.html')
 
 @app.route("/api/trainer/check", methods = ["GET"])
 def trainer_get():

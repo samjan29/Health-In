@@ -6,8 +6,8 @@
 }
 
 .box {
-    width: 500px;
-    height: 800px;
+    width: 400px;
+    height: 700px;
     margin: 20px auto;
     padding: 0px 5px 5px 5px;
 
@@ -23,6 +23,7 @@
 
 }
 .contents {
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,6 +53,6 @@ img {
 }
 
 button {
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 
