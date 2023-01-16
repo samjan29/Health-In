@@ -1,0 +1,36 @@
+.box {
+    margin: auto;
+    background-color: green;
+    width: 500px;
+    height: 1000px;
+
+}
+
+
+.content {
+
+    width: 300px;
+    height: 300px;
+
+}
+
+.description {
+    width: 300px;
+    height: 300px;
+}
+
+img {
+
+    border-radius: 70%;
+    width: 150px;
+    height: 150px;
+    margin: 60px auto 30px auto;
+
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
