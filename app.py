@@ -3,9 +3,7 @@ app = Flask(__name__)
 
 from dotenv import load_dotenv
 
-from datetime import datetime
-
-import os, certifi, jwt, hashlib
+import os, certifi, jwt, hashlib, datetime
 
 load_dotenv() # 환경변수 불러오기
 ca=certifi.where()
@@ -65,15 +63,25 @@ def signup():
 
 # 외원가입
 @app.route('/api/login', methods=['POST'])
-def login():
+def dologin():
     id_receive = request.form['id_give']
     pw_receive = request.form['pw_give']
 
     pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
 
-    result = db.user.find_one({'id': id_receive, 'pw': pw_hash})
+    all_members = list(db.members.find({'member_id': id_receive},{'_id':False}))
+    all_trainers = list(db.trainers.find({'trainer_id': id_receive},{'_id':False}))
 
-    return jsonify({'msg': '회원 가입 완료'})
+    result = {}
+    if len(all_members) == 0:
+        result = db.trainers.find_one({'id': id_receive, 'pw': pw_hash})
+    elif len(all_trainers) == 0:
+        result = db.members.find_one({'id': id_receive, 'pw': pw_hash})
+
+    if result != {}:
+        return jsonify({'result': 'success'})
+
+    return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.`'})
 
 # 리뷰 목록 불러오기
 @app.route('/api/trainer/review/<int:key>', methods=['GET'])

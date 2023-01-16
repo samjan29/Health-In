@@ -13,8 +13,13 @@ function login() {
             'pw_give': $('#login_pw').val()
         },
         success: function (response) {
-            alert(response['msg']);
-            window.location.href = '/';
+            if (response['result'] == 'success') {
+                $.cookie('mytoken', response['token']);
+                alert('로그인 완료')
+                window.location.href = '/'
+            } else {
+                alert(response['msg'])
+            }
         }
     });
 }
