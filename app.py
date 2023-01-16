@@ -12,7 +12,8 @@ app.config['JSON_AS_ASCII'] = False # UTF-인코딩
 
 from pymongo import MongoClient
 client = MongoClient(os.getenv('DB_URL'))
-db = client.dbsparta
+# db = client.dbsparta
+db = client.hanghae_mini
 
 @app.route('/')
 def home():
@@ -63,7 +64,7 @@ def set_review(key):
 
 
 @app.route('/api/reservation')
-def home():
+def reservation_view():
     return render_template('reservation.html', trainer_key=1)
 
 # 회원 예약 신청
@@ -116,13 +117,24 @@ def reservation_member_cancel(trainer_key):
     return jsonify({'msg': '트레이너 예약 신청이 취소되었습니다.'}), 201
 
 # 트레이너 예약 승인
-@app.route('/api/reservation/trainer/confirm/<int:member_key>')
+@app.route('/api/reservation/trainer/confirm/<int:member_key>', methods=['POST'])
 def reservation_trainer_confirm(member_key):
-    # TODO - [] 파라미터 받기
-    # TODO - [] 트레이너 식별하고 트레이너 키 가져오기
-    # TODO - [] 예약 상태 변경
-    # TODO - [] 결과
-    return 'reservation trainer cancel'
+    # TODO - [] 트레이너키 파라미터 유효성 검사
+    trainer_key = request.headers['trainer_key']
+    # TODO - [x] 멤버키 유효성 검사
+    exist_member = list(db.members.find({'key': int(member_key)}, {'_id': False}))
+    if len(exist_member) == 0:
+        return jsonify({'msg': '유효하지 않은 멤버 키 입니다.'}), 404
+
+    # TODO - [x] 예약키 가져오기
+    exist_reservation = list(
+        db.reservations.find({'member_key': int(member_key), 'trainer_key': int(trainer_key)})
+    )
+    reservation_key = exist_reservation[0]['key']
+    # TODO - [x] 예약 승인
+    db.reservations.update_one({'key': reservation_key}, {'$set': { 'reserve_status': 1 }})
+    # TODO - [x] 결과
+    return jsonify({'msg': '멤버 예약 승인이 완료되었습니다.'}), 201
 
 # 트레이너 예약 진행 완료
 @app.route('/api/reservation/trainer/complete/<int:member_key>')
