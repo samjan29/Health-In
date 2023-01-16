@@ -71,7 +71,7 @@ input {
     width: 550px;
     background-position: center;
     position: absolute;
-    top: 300px;
+    top: 250px;
 }
 .visual{
     display: flex;
@@ -85,7 +85,7 @@ input {
     color: #f6f6f6;
     cursor: pointer;
     position: absolute;
-    top: 520px;
+    top: 450px;
     z-index: 99;
     animation: text-in 1s cubic-bezier(0.3, 0.15, 0.25, 2) 0s backwards;
 
@@ -146,16 +146,16 @@ input {
 }
 .trainer_info{
     position: relative;
-    width: 80%;
-    top: 400px;
+    width: 90%;
+    top: 280px;
     margin-bottom: 600px;
 }
 .trainer_info > div{
     position: relative;
-    width: 400px; height:600px;
+    width:17%; height:100%;
     overflow: hidden;
     float: left;
-    margin: 30px;
+    margin: 30px 30px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -170,11 +170,10 @@ input {
     opacity: 50%;
 }
 .trainer_info > div > button{
-    display: none;
     position: absolute;
     top:60%; left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
     background-color: #f6f6f6;
     color: #465e42;
@@ -182,19 +181,18 @@ input {
     width: 200px;
     border-radius: 50px;
 }
-.trainer_info > div:hover > button{
-    display: block;
+.trainer_info > div:hover + button{
+
 }
 .trainer_info > div > p{
-    display: none;
+
     position: absolute;
     top:45%; left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
     color: #f6f6f6;
 }
-.trainer_info > div:hover > p{
-    display: block;
+.trainer_info > div:hover + p{
 }
