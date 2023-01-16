@@ -18,6 +18,10 @@ db = client.dbsparta
 def home():
     return render_template('index.html')
 
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 # 리뷰 목록 불러오기
 @app.route('/api/trainer/review/<int:key>', methods=['GET'])
 def get_reviews(key):
