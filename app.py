@@ -12,8 +12,7 @@ app.config['JSON_AS_ASCII'] = False # UTF-인코딩
 
 from pymongo import MongoClient
 client = MongoClient(os.getenv('DB_URL'))
-# db = client.dbsparta
-db = client.hanghae_mini
+db = client.dbsparta
 
 @app.route('/')
 def home():
