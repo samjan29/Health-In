@@ -16,17 +16,20 @@
 <body>
 <div class="box">
     <div class="contents">
-        <img id = "image" src="https://cdnweb01.wikitree.co.kr/webdata/editor/202103/04/img_20210304141854_d90cf7d5.webp" alt="이미지">
+        <img id="image" src="https://cdnweb01.wikitree.co.kr/webdata/editor/202103/04/img_20210304141854_d90cf7d5.webp"
+             alt="이미지">
         <div class="content">
-            <p>이름<input id = "name" type="text"></p>
-            <p>운동종류<input id = "category"type="text"></p>
-            <p>지역<input id = "region" type="text"></p>
-            <p>시간<input id = "timetable" type="text"></p>
-            <p>금액<input id = "price" type="text"></p>
+            <input id="name" type="text" class="form-control submit-text info" placeholder="이름">
+            <input id="category" type="text" class="form-control submit-text info" placeholder="운동종류">
+            <input id="region" type="text" class="form-control submit-text info" placeholder="지역">
+            <input id="timetable" type="text" class="form-control submit-text info" placeholder="시간">
+            <input id="price" type="text" class="form-control submit-text info" placeholder="금액">
+
+            <textarea id="description" class="form-control submit-text info" placeholder="소개"></textarea>
+            <button type="button" onclick="trainer_register()" class="btn btn-light">등록하기</button>
         </div>
-        <p>소개</p>
-        <p class><input id="description" class = "description" type="text"></p>
-        <button onclick = "trainer_register()">등록하기</button>
+
+{#        <button onclick="trainer_register()">등록하기</button>#}
     </div>
 
 </div>

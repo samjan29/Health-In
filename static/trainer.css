@@ -1,36 +1,57 @@
+/* 전체 css 결정*/
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
 .box {
-    margin: auto;
-    background-color: green;
     width: 500px;
-    height: 1000px;
+    height: 800px;
+    margin: 20px auto;
+    padding: 0px 5px 5px 5px;
+
+    background-color: #435241;
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
-
-
-.content {
-
-    width: 300px;
-    height: 300px;
-
-}
-
-.description {
-    width: 300px;
-    height: 300px;
-}
-
-img {
-
-    border-radius: 70%;
-    width: 150px;
-    height: 150px;
-    margin: 60px auto 30px auto;
-
-}
-
 .contents {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    color: #f6f6f6;
 }
+
+.content {
+    width: 300px;
+    height: 100%
+}
+
+img {
+    border-radius: 70%;
+    width: 150px;
+    height: 150px;
+    margin: 60px auto 30px auto;
+}
+
+.info {
+    margin-bottom: 10px;
+}
+
+.textarea {
+    height: 200px;
+}
+
+button {
+    margin: 20px 0px;
+}
+
