@@ -23,12 +23,12 @@
 
             <div class="filed">
                 <b>비밀번호</b>
-                <input id="pw" class="userpw" type="passwoed">
+                <input id="pw" class="userpw" type="password">
             </div>
 
             <div class="filed">
                 <b>비밀번호 확인</b>
-                <input id="pw2" class="userpw" type="passwoed">
+                <input id="pw2" class="userpw" type="password">
             </div>
 
             <div class="filed">
@@ -37,16 +37,17 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <input class="form-check-input" value="1" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">트레이너</label>
 
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label" for="flexRadioDefault1">일반회원</label>
+                <input class="form-check-input" value="0" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">일반회원</label>
             </div>
 
             <div class="b1">
                 <button onclick="signup()" type="submit" id="login_act" class="btn btn-primary">가입하기</button>
             </div>
         </div>
+        <script src="../static/js/join.js"></script>
     </body>
 </html>

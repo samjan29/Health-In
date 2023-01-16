@@ -39,9 +39,9 @@ function saveReviews() {
         type: "POST",
         url: `/api/trainer/review/${key}`,
         data: {
-            'member_key': memberKey,
-            'rank': rank,
-            'content': content
+            'member_key_give': memberKey,
+            'rank_give': rank,
+            'content_give': content
         },
         success: function (response) {
             alert(response['msg']);
