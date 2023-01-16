@@ -1,20 +1,48 @@
-$(document).ready(function () {
-    trainer_check();
-});
+
 
 function trainer_check() {
     $.ajax({
         type: "GET",
-        url: "/api/trainer/check",
+        url: "/api/trainer/check_list",
         data: {},
         success: function (response) {
             let rows = response['trainer_list']
-            console.log(rows)
+            for (let i = 0; i < rows.length; i++) {
+                let key = rows[i]['key']
+                let trainer_id = rows[i]['trainer_id']
+                let password = rows[i]['password']
+                let role = rows[i]['role']
+                let image = rows[i]['image']
+                let name = rows[i]['name']
+                let region = rows[i]['region']
+                let category = rows[i]['category']
+                let timetable = rows[i]['timetable']
+                let price = rows[i]['price']
+                let description = rows[i]['description']
 
+
+                $('#category').val(category)
+                $('#name').val(name)
+                $('#region').val(region)
+                $('#timetable').val(timetable)
+                $('#price').val(price)
+                $('#description').val(description)
+            }
         }
-
     })
 }
+function trainer(name){
+    $.ajax({
+        type: "POST",
+        url: "/api/trainer/check",
+        data: {name_give:name},
+        success:function(response){
+        alert(response['msg'])
+        window.location.reload()
+        }
+    })
+}
+
 function trainer_register() {
     let image = $('#image').val()
     let name = $('#name').val()

@@ -11,8 +11,10 @@ def home():
 
 @app.route("/api/trainer/check", methods = ["GET"])
 def trainer_get():
-    trainer_list = list(db.healthin.find({}))
+    trainer_list = list(db.healthin.find({},{'_id':False}))
     return jsonify({'trainer_list': trainer_list})
+
+
 
 @app.route("/api/trainer/register", methods = ["POST"])
 def trainer_post():
