@@ -16,12 +16,12 @@ def home():
 
 @app.route("/api/trainer/register", methods = ["POST"])
 def trainer_post():
-    name_receive: request.form['name_give']
-    region_receive: request.form['region_give']
-    category_receive: request.form['category_give']
-    timetable_receive: request.form['timetable_give']
-    price_receive: request.form['price_give']
-    description_receive: request.form['description_give']
+    name_receive= request.form['name_give']
+    region_receive= request.form['region_give']
+    category_receive= request.form['category_give']
+    timetable_receive= request.form['timetable_give']
+    price_receive= request.form['price_give']
+    description_receive= request.form['description_give']
 
     doc = {
         'key':0,
