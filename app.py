@@ -26,8 +26,8 @@ def reservation_member_apply(trainer_key):
         return jsonify({'msg': '멤버 키를 입력해주세요'}), 400
 
     # TODO - [x] 트레이너키 파라미터 유효성 검사
-    exist_trainer_key = list(db.trainers.find({'key': int(trainer_key)}, {'_id': False}))
-    if len(exist_trainer_key) == 0:
+    exist_trainer = list(db.trainers.find({'key': int(trainer_key)}, {'_id': False}))
+    if len(exist_trainer) == 0:
         return jsonify({'msg': '유효하지 않은 트레이너 키 입니다.'}), 404
 
     # TODO - [x] 예약 키 생성
@@ -45,16 +45,25 @@ def reservation_member_apply(trainer_key):
     }
     db.reservations.insert_one(doc)
     # TODO - [x] 결과
-    return jsonify({'msg': 'success'}), 201
+    return jsonify({'msg': '트레이너 예약 신청이 완료되었습니다.'}), 201
 
 # 회원 예약 취소
-@app.route('/api/reservation/member/cancel/<int:trainer_key>')
+@app.route('/api/reservation/member/cancel/<int:trainer_key>', methods=['DELETE'])
 def reservation_member_cancel(trainer_key):
-    # TODO - [] 파라미터 받기
-    # TODO - [] 멤버 식별하고 멤버 키 가져오기
-    # TODO - [] 예약 상태 변경
-    # TODO - [] 결과
-    return 'reservation member cancel'
+    # TODO - [] 멤버키 파라미터 유효성 검사
+    member_key = request.headers['member_key']
+    # TODO - [x] 트레이너키 유효성 검사
+    exist_trainer = list(db.trainers.find({'key': int(trainer_key)}, {'_id': False}))
+    if len(exist_trainer) == 0:
+        return jsonify({'msg': '유효하지 않은 트레이너 키 입니다.'}), 404
+
+    # TODO - [x] 예약키 가져오기
+    exist_reservation = list(db.reservations.find({'member_key': int(member_key), 'trainer_key': trainer_key }, {'_id': False}))
+    reservation_key = exist_reservation[0]['key']
+    # TODO - [x] 예약 삭제
+    db.reservations.delete_one({'key': reservation_key})
+    # TODO - [x] 결과
+    return jsonify({'msg': '트레이너 예약 신청이 취소되었습니다.'}), 201
 
 # 트레이너 예약 승인
 @app.route('/api/reservation/trainer/confirm/<int:member_key>')
