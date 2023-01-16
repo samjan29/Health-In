@@ -170,6 +170,7 @@ input {
     opacity: 50%;
 }
 .trainer_info > div > button{
+    display: none;
     position: absolute;
     top:60%; left: 50%;
     transform: translate(-50%, -50%);
@@ -181,11 +182,11 @@ input {
     width: 200px;
     border-radius: 50px;
 }
-.trainer_info > div:hover + button{
-
+.trainer_info > div:hover > button{
+    display: block;
 }
 .trainer_info > div > p{
-
+    display: none;
     position: absolute;
     top:45%; left: 50%;
     width: 100%;
@@ -194,6 +195,6 @@ input {
     text-align: center;
     color: #f6f6f6;
 }
-.trainer_info > div:hover + p{
-
+.trainer_info > div:hover > p{
+    display: block;
 }
