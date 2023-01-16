@@ -5,14 +5,6 @@ from pymongo import MongoClient
 client = MongoClient('mongodb+srv://test:sparta@cluster0.s6i4xlw.mongodb.net/cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-# @app.route("/api/trainer/check", methods = ["GET"])
-# def trainer_get():
-#     trainer_list = list(db.health_in.find({}))
-#     return jsonify({'trainer_list': trainer_list})
 
 @app.route("/api/trainer/register", methods = ["POST"])
 def trainer_post():
