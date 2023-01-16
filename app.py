@@ -64,13 +64,13 @@ def set_review(key):
 
 @app.route('/api/reservation')
 def reservation_view():
-    return render_template('reservation.html', trainer_key=1)
+    return render_template('reservation.html', trainer_key=1, member_key=1)
 
 # 회원 예약 신청
 @app.route('/api/reservation/member/apply/<int:trainer_key>', methods=['POST'])
 def reservation_member_apply(trainer_key):
     # TODO - [~] 멤버키 파라미터 유효성 검사
-    member_key = request.headers['member_key']
+    member_key = request.form['member_key']
     ## TODO - [] member_key가 없는 경우 추가
     if member_key is None:
         return jsonify({'msg': '멤버 키를 입력해주세요'}), 400
@@ -101,7 +101,7 @@ def reservation_member_apply(trainer_key):
 @app.route('/api/reservation/member/cancel/<int:trainer_key>', methods=['DELETE'])
 def reservation_member_cancel(trainer_key):
     # TODO - [] 파라미터 유효성 검사
-    member_key = request.headers['member_key']
+    member_key = request.form['member_key']
     exist_trainer = list(db.trainers.find({'key': int(trainer_key)}, {'_id': False}))
     if len(exist_trainer) == 0:
         return jsonify({'msg': '유효하지 않은 트레이너 키 입니다.'}), 404
@@ -116,7 +116,7 @@ def reservation_member_cancel(trainer_key):
 @app.route('/api/reservation/trainer/confirm/<int:member_key>', methods=['POST'])
 def reservation_trainer_confirm(member_key):
     # TODO - [] 파라미터 유효성 검사
-    trainer_key = request.headers['trainer_key']
+    trainer_key = request.form['trainer_key']
     exist_member = list(db.members.find({'key': int(member_key)}, {'_id': False}))
     if len(exist_member) == 0:
         return jsonify({'msg': '유효하지 않은 멤버 키 입니다.'}), 404
@@ -133,7 +133,7 @@ def reservation_trainer_confirm(member_key):
 @app.route('/api/reservation/trainer/complete/<int:member_key>', methods=['POST'])
 def reservation_trainer_complete(member_key):
     # TODO - [] 파라미터 유효성 검사
-    trainer_key = request.headers['trainer_key']
+    trainer_key = request.form['trainer_key']
     exist_member = list(db.members.find({'key': int(member_key)}, {'_id': False}))
     if len(exist_member) == 0:
         return jsonify({'msg': '유효하지 않은 멤버 키 입니다.'}), 404
@@ -151,7 +151,7 @@ def reservation_trainer_complete(member_key):
 @app.route('/api/reservation/trainer/cancel/<int:member_key>', methods=['DELETE'])
 def reservation_trainer_cancel(member_key):
     # TODO - [] 파라미터 유효성 검사
-    trainer_key = request.headers['trainer_key']
+    trainer_key = request.form['trainer_key']
     exist_member = list(db.members.find({'key': int(member_key)}, {'_id': False}))
     if len(exist_member) == 0:
         return jsonify({'msg': '유효하지 않은 트레이너 키 입니다.'}), 404
