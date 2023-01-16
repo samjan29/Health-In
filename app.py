@@ -229,6 +229,41 @@ def reservation_trainer_cancel(member_key):
     db.reservations.delete_one({'key': reservation_key})
     return jsonify({'msg': '멤버 예약이 취소되었습니다.'}), 201
 
+@app.route('/trainer')
+def trainer_view():
+    trainer_list = list(db.healthin.find({}, {'_id': False}).sort('name', -1))
+    return render_template('trainer.html')
+
+@app.route("/api/trainer/check", methods = ["GET"])
+def trainer_get():
+    trainer_list = list(db.healthin.find({},{'_id':False}))
+    return jsonify({'trainer_list': trainer_list})
+
+
+@app.route("/api/trainer/register", methods = ["POST"])
+def trainer_post():
+    name_receive= request.form['name_give']
+    region_receive= request.form['region_give']
+    category_receive= request.form['category_give']
+    timetable_receive= request.form['timetable_give']
+    price_receive= request.form['price_give']
+    description_receive= request.form['description_give']
+
+    doc = {
+        'key':0,
+        'trainer_id': 'trainer1',
+        'password':'abcd1234',
+        'name':name_receive,
+        'region':region_receive,
+        'category' : category_receive,
+        'timetable':timetable_receive,
+        'price': price_receive,
+        'description':description_receive
+    }
+
+    db.healthin.insert_one(doc)
+    return jsonify({'msg':'등록완료!'})
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=os.getenv('PORT'), debug=True)
