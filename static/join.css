@@ -1,0 +1,88 @@
+@font-face {
+            font-family: 'NanumSquareNeo-Variable';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        *{
+            font-family: 'NanumSquareNeo-Variable';
+            box-sizing: border-box; /* 전체 박스 */
+            outline: none;
+        }
+
+        body{
+            font-size: 20px;
+            line-height: 1.5em;
+            margin: 0;
+            color: #f6f6f6;
+            background: #435241;
+        }
+
+        a{
+            text-decoration: none;
+            color:  rgb(0, 0, 0);
+        }
+
+        .member{
+            width: 450px;
+            margin: 100px auto;
+            padding: 0 20px;
+            display: block;
+            margin-top: 230px;
+        }
+        .member .filed{
+            margin: 20px 0;
+        }
+
+        .member input:not(input[type=radio]),.member select{
+            border: 1px solid #dadada;
+            padding: 15px;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .member input[type=button],
+        .member input[type=submit]{
+            background-color: black;
+            color: #fff;
+        }
+
+        .member input:focus, .member select:focus{
+            border: 1px solid black;
+        }
+        #login_act{
+            width: 300px; height: 60px;
+            font-size: 22px;
+            margin-top: 30px;
+            border-radius: 30px;
+            background-color: #f6f6f6;
+            border: none;
+            color:#465e42;
+            margin-top: 100px;
+            cursor: pointer;
+        }
+        #login_act:hover{
+            border: 3px solid #f6f6f6;
+            background: none;
+            color: #f6f6f6;
+            font-weight: bold;
+        }
+        .b1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 90px;
+            font-size: 45px;
+        }
+        .form-check{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-check > label{
+            margin-right: 50px;
+        }
