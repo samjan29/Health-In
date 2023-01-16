@@ -9,6 +9,10 @@ db = client.dbsparta
 def home():
     return render_template('index.html')
 
+@app.route("/api/trainer/check", methods = ["GET"])
+def trainer_get():
+    trainer_list = list(db.healthin.find({}))
+    return jsonify({'trainer_list': trainer_list})
 
 @app.route("/api/trainer/register", methods = ["POST"])
 def trainer_post():

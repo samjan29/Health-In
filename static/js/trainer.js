@@ -1,3 +1,20 @@
+$(document).ready(function () {
+    trainer_check();
+});
+
+function trainer_check() {
+    $.ajax({
+        type: "GET",
+        url: "/api/trainer/check",
+        data: {},
+        success: function (response) {
+            let rows = response['trainer_list']
+            console.log(rows)
+
+        }
+
+    })
+}
 function trainer_register() {
     let image = $('#image').val()
     let name = $('#name').val()
