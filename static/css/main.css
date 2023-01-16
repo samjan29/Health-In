@@ -1,0 +1,198 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'OKDDUNG';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/OKDDUNG.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@keyframes text-in {
+          0% {
+            transform: translate(0, -60px);
+            opacity: 0;
+          }
+        }
+/* reset */
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+img {
+    border: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.screen_out {
+    position: absolute;
+    top: -9999px;
+    left: -99999px;
+}
+
+input {
+    display: inline-block;
+    text-align: start;
+    background-color: #f6f6f6;
+    cursor: text;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+.guide {
+    color: #999;
+}
+
+.wrap {
+    position: relative;
+    width: 100%;
+    height: auto;
+    color: #f6f6f6;
+    background: #435241;
+    overflow: scroll;
+}
+.header_top{
+    position: relative;
+    width: 100%;
+    height: 1080px;
+}
+.visual >img{
+    position: absolute;
+    width: 550px;
+    background-position: center;
+    position: absolute;
+    top: 250px;
+}
+.visual{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.visual > h1 {
+    font-family: 'OKDDUNG';
+    font-size: 12em;
+    color: #f6f6f6;
+    cursor: pointer;
+    position: absolute;
+    top: 450px;
+    z-index: 99;
+    animation: text-in 1s cubic-bezier(0.3, 0.15, 0.25, 2) 0s backwards;
+
+}
+.join{
+    position: absolute;
+    top: 50px; right: 4%;
+    color: #f6f6f6;
+    font-size: 25px;
+}
+.join:hover{
+    font-weight: bold;
+    border-bottom: 2px solid #f6f6f6;
+}
+.login{
+    position: absolute;
+    top: 50px; right: 9%;
+    color: #f6f6f6;
+    font-size: 25px;
+}
+.login:hover{
+    font-weight: bold;
+    border-bottom: 2px solid #f6f6f6;
+}
+.banner{
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    position: relative;
+    width: 100%; height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-box {
+    width: 100%;
+    position: relative;
+    top: 150px;
+    text-align: center;
+}
+.btn-box > button{
+    width: 250px; height: 70px;
+    border: 3px solid #f6f6f6;
+    border-radius: 50px;
+    margin-right: 70px;
+    font-size: 30px;
+    color: #f6f6f6;
+}
+.btn-box > button:hover{
+    background-color: #f6f6f6;
+    color: #465e42;
+}
+.trainer_info{
+    position: relative;
+    width: 90%;
+    top: 280px;
+    margin-bottom: 600px;
+}
+.trainer_info > div{
+    position: relative;
+    width:17%; height:100%;
+    overflow: hidden;
+    float: left;
+    margin: 30px 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.trainer_info > div > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.trainer_info > div > img:hover{
+    opacity: 50%;
+}
+.trainer_info > div > button{
+    position: absolute;
+    top:60%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    text-align: center;
+    background-color: #f6f6f6;
+    color: #465e42;
+    border: 5px solid #f6f6f6;
+    width: 200px;
+    border-radius: 50px;
+}
+.trainer_info > div:hover + button{
+
+}
+.trainer_info > div > p{
+
+    position: absolute;
+    top:45%; left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    text-align: center;
+    color: #f6f6f6;
+}
+.trainer_info > div:hover + p{
+}

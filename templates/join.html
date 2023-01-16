@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>회원가입 페이지</title>
+    <link href="../static/css/join.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+        <div class="member">
+            <h1>회원가입 하기</h1>
+
+            <!-- 필드 -->
+            <div class="filed">
+                <b>아이디</b>
+                <span id="id" class="placehold-text"><input type="text"></span>
+            </div>
+
+            <div class="filed">
+                <b>비밀번호</b>
+                <input id="pw" class="userpw" type="password">
+            </div>
+
+            <div class="filed">
+                <b>비밀번호 확인</b>
+                <input id="pw2" class="userpw" type="password">
+            </div>
+
+            <div class="filed">
+                <b>닉네임</b>
+                <input id="nickname" type="text">
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" value="1" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">트레이너</label>
+
+                <input class="form-check-input" value="0" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">일반회원</label>
+            </div>
+
+            <div class="b1">
+                <button onclick="signup()" type="submit" id="login_act" class="btn btn-primary">가입하기</button>
+            </div>
+        </div>
+        <script src="../static/js/join.js"></script>
+    </body>
+</html>

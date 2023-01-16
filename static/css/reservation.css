@@ -1,0 +1,11 @@
+.trainer_bok {
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+
+    border: black solid 1px;
+    background-color: cadetblue;
+    color: beige;
+
+    text-align: center;
+}
